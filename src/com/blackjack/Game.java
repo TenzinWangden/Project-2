@@ -1,5 +1,10 @@
 package com.blackjack;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Game {
@@ -162,19 +167,38 @@ public class Game {
 
 		if (playerHandValue > BLACKJACK_VALUE) {
 			System.out.println(LOSE_MESSAGE);
+            writeGameData(player.getName(), "Loss");
 		} else if (houseHandValue > BLACKJACK_VALUE) {
 			System.out.println(WIN_MESSAGE);
 			player.setEarnings(player.getEarnings() + 2 * BET_MIN);
+            writeGameData(player.getName(), "Win");
 		} else if (playerHandValue > houseHandValue) {
 			System.out.println(WIN_MESSAGE);
 			player.setEarnings(player.getEarnings() + 2 * BET_MIN);
+            writeGameData(player.getName(), "Win");
 		} else if (playerHandValue < houseHandValue) {
 			System.out.println(LOSE_MESSAGE);
+            writeGameData(player.getName(), "Loss");
 		} else {
 			System.out.println(PUSH_MESSAGE);
 			player.setEarnings(player.getEarnings() + BET_MIN);
+            writeGameData(player.getName(), "Push");
 		}
 	}
+	 private void writeGameData(String playerName, String result) {
+	        try {
+	            String fileName = "game_data.txt";
+	            File file = new File(fileName);
+	            FileWriter writer = new FileWriter(file, true);
+	            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	            String timestamp = dateFormat.format(new Date());
+
+	            writer.write(timestamp + " - Player: " + playerName + ", Result: " + result + "\n");
+	            writer.close();
+	        } catch (IOException e) {
+	            System.out.println("Failed to write game data.");
+	        }
+	    }
 
 	private boolean askToPlayAgain() {
 		while (true) {
