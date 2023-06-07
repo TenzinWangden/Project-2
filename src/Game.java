@@ -30,6 +30,7 @@ public class Game {
 		this.player = null;
 		this.house = new House();
 		this.deck = new Deck();
+		deck.shuffle();
 	}
 
 	public void start() {
