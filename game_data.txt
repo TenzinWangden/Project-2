@@ -1,1 +1,6 @@
-2023-06-06 21:23:29 - Player: tee, Result: Win
+2023-06-07 16:49:24 - Player: tin, Result: Win
+2023-06-07 17:18:14 - Player: tii, Result: Win
+2023-06-08 15:35:18 - Player: tera, Result: Loss
+2023-06-08 15:35:55 - Player: tea, Result: Loss
+2023-06-08 15:36:41 - Player: tom, Result: Loss
+2023-06-08 15:37:24 - Player: jon, Result: Win

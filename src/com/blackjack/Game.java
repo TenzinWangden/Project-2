@@ -114,11 +114,12 @@ public class Game {
 			player.addCardToHand(deck.dealCard());
 			house.addCardToHand(deck.dealCard());
 		}
+	    deck.shuffle(); 
 
 		System.out.println("Your cards: " + player.getHand());
 		System.out.println("House cards: " + house.getHand().get(0) + " and [Hidden]");
 	}
-
+	
 	private void playerTurn() {
 		while (true) {
 			System.out.print("Do you want to hit or stay? (h/s): ");
